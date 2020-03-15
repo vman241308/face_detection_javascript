@@ -65,8 +65,7 @@ All the applications that you will create live this folder. For example, the app
 
 + `index.html`: The markup HTML file that will reference the VueJS instance
 
-
-
+<hr>
 
 **`facedetect folder`**
 
