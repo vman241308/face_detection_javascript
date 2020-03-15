@@ -20,9 +20,9 @@ Artificial Intelligence (AI) and Machine Learning in particular don't have to be
 
 * [face-api library](https://github.com/justadudewhohacks/face-api.js/): this project uses the face api javascript library developed by Vincent Muhler
 
-* FaceDetect framework: Proprietary open source framework that I created to make the use of the face-api library easier to use and to integrate with Vue JS. The framework is included in the distribution (detect.js)
+* detect.js: Proprietary open source class that I created to make the use of the face-api library easier to use and to integrate in third party applications and frameworks
 
-* [TensorFlow](https://www.tensorflow.org/): Tensor flow is an end-to-end open source platform with comprehensive tools and libraries that lets developers easily build machine learning powered applications.
+* [TensorFlow](https://www.tensorflow.org/): Tensor flow is an end-to-end open source platform with comprehensive tools and libraries that lets developers easily build machine learning powered applications
 
 * [ml5.js](https://ml5js.org/): ML5 is an open source library, with exhaustive documentation and tutorials for understanding machine learning algorithms and how to use TensorFlow Models
 
@@ -41,14 +41,12 @@ git clone git@github.com:DoryAzar/facedetect.git
 ```
 
 
-
 ### Testing the package
 
 Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
 In order to run that application, navigate to the folder where FaceDetect was downloaded then run `facedetect > app > basic > index.html` by double clicking on the `index.html`. 
 
 > If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
-
 
 
 
@@ -69,7 +67,7 @@ All the applications that you will create live this folder. For example, the app
 
 #### **`facedetect folder`**
 
-In this folder lies the core definition of the detection and recognition framework. There are 5 main components to this framework:
+In this folder lies the core definition of the detection and recognition framework. There are 4 key components to this framework:
 
 + `FaceDetector Class`: This is the core class for using `FaceDetect` in your application. The core code is in `detect.js` that can be found in the `scripts` folder
 
@@ -84,13 +82,102 @@ In this folder lies the core definition of the detection and recognition framewo
 
 ## Let's get through the basics
 
-### Understanding Face Detection and Recognition
+### Understanding Face detection and recognition
+
+Detection and Recognition are two different concepts. While both use machine learning and neural networks in particular, they achieve different things. Understanding the distinction is key to better understanding how the FaceDetect framework operates.
+
+#### Face detection
+
+Face detection is about identifying a human face among all other "things" perceived through either an image or a video. So for example, a picture or a video can have people, objects, scenery etc... Face detection is when the system is capable of pointing out the presence of a human face among all those other things.
+
+#### Face recognition
+
+Recognition is about identifying who the human face is among all other faces and things perceived. So for example, Face recognition is when the system is capable of pointing out "Flash" among all other superheroes in a picture or a video.
+
+### Understanding the FaceDetect `app`
+
+FaceDetect relies on an important principle: "First you detect then you do something with the detections". With that principle in mind, the framework focuses on providing an easy-to-code sandbox for you to do something with the detections. Each sandbox is an `app` of its own. So if you intend to detect the age of a face or detect the facial expressions or count the number of people or recognize a face etc.. Each one of those is referred to as an `app`.
+
+The FaceDetect `app` is a Vue application that - similarly to all Vue applications - relies on both an HTML markup file and a Javascript file.
+
+#### The `basic` app as a starting point
+
+Every application that you create resides in the `app` folder. The `basic` app that comes with the package is for illustration and testing purposes. The `basic` folder can be duplicated within the `app` folder and renamed as a starting point for your application.
+
+#### The HTML markup components
+
+The HTML markup file (index.html for example) is the user interface that will define the source of the face detections (image or video) and any other controls needed to make something useful with the detections. It should also include the FaceDetect needed libraries and the Vue JS framework reference.
+
+The HTML markup has 4 key elements that are designed to work with and without Vue.
+
+##### **`detector section`**
+
+`FaceDetect` is identified in the markup by the id **`detector`**. `FaceDetect` will be encapsulated within that block. If you are using Vue, the `detector` block lives within the Vue app id.
+
+```html
+
+<!-- Vue app -->
+<div id="app">
+   <section id="detector">
+   ....
+   </section>
+</div>
+
+```
+
+##### Media source
+No matter what you want to do with FaceDetect, detection is the first step to it. It is therefore important to identify what the detection source is. Is it an image, a video or a live webcam?
+
+The markup of your application needs to provide that source:
+
+```html
+<!-- Beginning of the app -->
+<div id="app">
+   
+   <section id="detector">
+
+      <!-- media can be an image 
+      <img id="detection" class="show" src="">
+      -->
+
+      <!-- media can be a video 
+      <video id="detection" src="<video local url>" type="video/mp4" width="720" height="560" class="show" autoplay="autoplay" muted playsinline controls></video>
+      -->
+
+      <!-- media can be live webcam -->
+      <video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
+
+   </section>
+
+</div>
+
+```
+
+##### Controls
+
+So far, only the source has been specified. In order to do something with it, it needs one or more UI triggers to activate it. `FaceDetector` provides you with a way to create these controls if you desire. In order to do that, you will need to add the `controls` placeholder to your markup.
+
+```html
+
+<section class="controls">
+   <div id="apps"></div>
+</section>
+
+```
+
+##### Infobar
+
+`FaceDetect` provides you with a UI component to display welcome messages, status or instruction messages called `Infobar`. In order to use it, you will need to add the `infobar` placeholder to your markup.
+
+```html
+
+<section id="infobar"></section>
+
+```
+
+#### The Vue Javascript
 
 
-
-### Markup Components
-
-### FaceDetect Vue Sandboxes
 
 
 ## Let's have some fun
