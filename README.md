@@ -108,16 +108,17 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 + **`detector section`**: `FaceDetect` is identified in the markup by the id **`detector`**. `FaceDetect` will be encapsulated within that block. If you are using Vue, the `detector` block lives within the Vue app id.
 
-```html
+	```html
 
-<!-- Vue app -->
-<div id="app">
-   <section id="detector">
-   ....
-   </section>
-</div>
+	<!-- Vue app -->
+	<div id="app">
+	   <section id="detector">
+	   ....
+	   </section>
+	</div>
 
-```
+	```
+
 
 + **Media source**: No matter what you want to do with FaceDetect, detection is the first step to it. It is therefore important to identify what the detection source is. Is it an image, a video or a live webcam?
 
@@ -146,6 +147,7 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 	```
 
+
 + **Controls**: So far, only the source has been specified. In order to do something with it, it needs one or more UI triggers to activate it. `FaceDetector` provides you with a way to create these controls if you desire. In order to do that, you will need to add the `controls` placeholder to your markup.
 
 	```html
@@ -156,6 +158,7 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 	```
 
+
 + **Infobar**: `FaceDetect` provides you with a UI component to display welcome messages, status or instruction messages called `Infobar`. In order to use it, you will need to add the `infobar` placeholder to your markup.
 
 	```html
@@ -163,6 +166,7 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 	<section id="infobar"></section>
 
 	```
+
 
 #### The Vue Javascript
 
