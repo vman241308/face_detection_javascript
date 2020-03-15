@@ -49,6 +49,8 @@ In order to run that application, navigate to the folder where FaceDetect was do
 Just like any framework, FaceDetect comes with a structure of its own. Understanding that structure is key to understanding the different components of the framework and they interact with each other.
 
 **`app folder`**
+
+
 All the applications that you will create live this folder. For example, the application that we used to test the installation is in this folder. Each application is a folder of its own and it consists of the following:
 
 + `main.js`: The VueJS script file
