@@ -2,6 +2,8 @@
 + By: Dory Azar
 + Production URL: [e28p1.broadposter.com](http://e28p1.broadposter.com)
 
+<br />
+
 ## What is it?
 
 Detecting human faces and recognizing faces and facial expressions has always been an area of interest for different applications such as games, utilities and even security. With the advancement of machine learning, the techniques of detection and recognition have become more accurate and precise than ever before.
@@ -65,7 +67,9 @@ All the applications that you will create live this folder. For example, the app
 
 
 
-** `facedetect folder`**
+
+**`facedetect folder`**
+
 
 In this folder lies the core definition of the detection and recognition framework. There are 5 main components to this framework:
 
