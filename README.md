@@ -56,7 +56,7 @@ In order to run that application, navigate to the folder where FaceDetect was do
 
 Just like any framework, FaceDetect comes with a structure of its own. Understanding that structure is key to understanding the different components of the framework and they interact with each other.
 
-**`app folder`**
+#### **`app folder`**
 
 
 All the applications that you will create live this folder. For example, the application that we used to test the installation is in this folder. Each application is a folder of its own and it consists of the following:
@@ -65,9 +65,8 @@ All the applications that you will create live this folder. For example, the app
 
 + `index.html`: The markup HTML file that will reference the VueJS instance
 
-<hr>
 
-**`facedetect folder`**
+#### **`facedetect folder`**
 
 
 In this folder lies the core definition of the detection and recognition framework. There are 5 main components to this framework:
