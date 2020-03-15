@@ -12,6 +12,7 @@ As part of this study, I created a Javascript framework built on top of the work
 
 Artificial Intelligence (AI) and Machine Learning in particular don't have to be difficult and we hope that the FaceDetect framework gives developers the means to include face detection and recognition in a seamless way in their applications.
 
+<br />
 
 ## Credits & Resources
 
@@ -23,9 +24,10 @@ Artificial Intelligence (AI) and Machine Learning in particular don't have to be
 
 * [ml5.js](https://ml5js.org/): ML5 is an open source library, with exhaustive documentation and tutorials for understanding machine learning algorithms and how to use TensorFlow Models
 
-
+<br />
 
 ## Let's get started
+
 
 ### Installation
 
@@ -36,12 +38,16 @@ git clone git@github.com:DoryAzar/facedetect.git
 
 ```
 
+
+
 ### Testing the package
 
 Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
 In order to run that application, navigate to the folder where FaceDetect was downloaded then run `facedetect > app > basic > index.html` by double clicking on the `index.html`. 
 
 > If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
+
+
 
 
 ### Understanding the file structure
@@ -56,6 +62,23 @@ All the applications that you will create live this folder. For example, the app
 + `main.js`: The VueJS script file
 
 + `index.html`: The markup HTML file that will reference the VueJS instance
+
+
+
+** `facedetect folder`**
+
+In this folder lies the core definition of the detection and recognition framework. There are 5 main components to this framework:
+
++ `FaceDetector Class`: This is the core class for using `FaceDetect` in your application. The core code is in `detect.js` that can be found in the `scripts` folder
+
++ `neural network models`: Every machine learning application relies on trained models to be able to do things such as object detection or recognition. FaceDetect is no exception to that rule and it needs these models to operate properly. These pre-trained models are included in the package and can be found in the `models` folder
+
++ `recognition models`: In order to recognize specific faces, `FaceDetect` needs models to compare the detections to. These models are nothing more but a series of pictures of people organized in folders. These need to be created under the folder called `recognition`. As an example, you can find a subfolder called `Flash` that has 6 (PNG) pictures named by number of the superhero Flash. The same mechanism should be used to create more models (pictures of you for example). We will elaborate more on face recognition when we create our first face recognition application
+
++ `faceapi.js`: The FaceAPI developed by Vincent Muhler is included in the package
+
+
+<br />
 
 ## Let's get through the basics
 
