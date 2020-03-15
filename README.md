@@ -39,7 +39,7 @@ git clone git@github.com:DoryAzar/facedetect.git
 Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
 In order to run that application, navigate to the folder where FaceDetect was downloaded then run `facedetect > app > basic > index.html` by double clicking on the `index.html`. 
 
-If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
+> If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
 
 
 
