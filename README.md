@@ -34,6 +34,7 @@ git clone git@github.com:DoryAzar/facedetect.git
 
 ```
 
+
 ### Testing the package
 
 Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
@@ -41,7 +42,7 @@ In order to run that application, navigate to the folder where FaceDetect was do
 
 > If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
 
-
+<br />
 
 ### Understanding the file structure
 
