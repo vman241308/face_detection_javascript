@@ -121,48 +121,48 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 + **Media source**: No matter what you want to do with FaceDetect, detection is the first step to it. It is therefore important to identify what the detection source is. Is it an image, a video or a live webcam?
 
-The markup of your application needs to provide that source:
+	The markup of your application needs to provide that source:
 
-```html
-<!-- Beginning of the app -->
-<div id="app">
-   
-   <section id="detector">
+	```html
+	<!-- Beginning of the app -->
+	<div id="app">
 
-      <!-- media can be an image 
-      <img id="detection" class="show" src="">
-      -->
+	   <section id="detector">
 
-      <!-- media can be a video 
-      <video id="detection" src="<video local url>" type="video/mp4" width="720" height="560" class="show" autoplay="autoplay" muted playsinline controls></video>
-      -->
+		  <!-- media can be an image 
+		  <img id="detection" class="show" src="">
+		  -->
 
-      <!-- media can be live webcam -->
-      <video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
+		  <!-- media can be a video 
+		  <video id="detection" src="<video local url>" type="video/mp4" width="720" height="560" class="show" autoplay="autoplay" muted playsinline controls></video>
+		  -->
 
-   </section>
+		  <!-- media can be live webcam -->
+		  <video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
 
-</div>
+	   </section>
 
-```
+	</div>
+
+	```
 
 + **Controls**: So far, only the source has been specified. In order to do something with it, it needs one or more UI triggers to activate it. `FaceDetector` provides you with a way to create these controls if you desire. In order to do that, you will need to add the `controls` placeholder to your markup.
 
-```html
+	```html
 
-<section class="controls">
-   <div id="apps"></div>
-</section>
+	<section class="controls">
+	   <div id="apps"></div>
+	</section>
 
-```
+	```
 
 + **Infobar**: `FaceDetect` provides you with a UI component to display welcome messages, status or instruction messages called `Infobar`. In order to use it, you will need to add the `infobar` placeholder to your markup.
 
-```html
+	```html
 
-<section id="infobar"></section>
+	<section id="infobar"></section>
 
-```
+	```
 
 #### The Vue Javascript
 
