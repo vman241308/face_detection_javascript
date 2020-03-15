@@ -4,6 +4,16 @@
 
 <br />
 
+## Content
+
++ [What is it?](https://github.com/DoryAzar/facedetect#what-is-it)
++ [Credits & Resources](https://github.com/DoryAzar/facedetect#credits--resources)
++ [Let's get started](https://github.com/DoryAzar/facedetect#lets-get-started)
++ [Let's get through the basics](https://github.com/DoryAzar/facedetect#lets-get-through-the-basics)
++ [Let's have some fun](https://github.com/DoryAzar/facedetect#lets-have-some-fun)
+
+<br />
+
 ## What is it?
 
 Detecting human faces and recognizing faces and facial expressions has always been an area of interest for different applications such as games, utilities and even security. With the advancement of machine learning, the techniques of detection and recognition have become more accurate and precise than ever before.
