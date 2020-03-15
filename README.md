@@ -23,20 +23,35 @@ As part of this study, I created a Javascript framework built on top of the work
 
 
 
-## Installation
+## Let's get started
 
-The FaceDetect package can be installed from Github by either downloading the ZIP folder or by running the following command from the terminal:
+### Installation
+
+The FaceDetect package can be downloaded from Github by either downloading the ZIP folder or by running the following command from the terminal:
 
 ```bash
-git clone 
+git clone git@github.com:DoryAzar/facedetect.git
 
 ```
+
+### Testing the package
+
+Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
+In order to run that application, navigate to the folder where FaceDetect was downloaded then run `facedetect > app > basic > index.html` by double clicking on the `index.html`. 
+
+If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
+
+
+
+### Understanding the file structure
+
+
 
 ## Let's get through the basics
 
 ### Understanding Face Detection and Recognition
 
-### File Structure
+
 
 ### Markup Components
 
