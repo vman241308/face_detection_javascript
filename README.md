@@ -10,6 +10,8 @@ However, machine learning remains a relatively complex field that could feel int
 
 As part of this study, I created a Javascript framework built on top of the work of several open source projects and models with the hope to reduce the entry barrier for developers and to encourage them to focus more on developing innovative applications that make use of face detection and recognition.
 
+Artificial Intelligence (AI) and Machine Learning in particular don't have to be difficult and we hope that the FaceDetect framework gives developers the means to include face detection and recognition in a seamless way in their applications.
+
 
 ## Credits & Resources
 
@@ -34,7 +36,6 @@ git clone git@github.com:DoryAzar/facedetect.git
 
 ```
 
-
 ### Testing the package
 
 Once the FaceDetect package is downloaded, you can test it by running the out-of-the-box application that comes with it.
@@ -42,11 +43,17 @@ In order to run that application, navigate to the folder where FaceDetect was do
 
 > If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
 
-<br />
 
 ### Understanding the file structure
 
+Just like any framework, FaceDetect comes with a structure of its own. Understanding that structure is key to understanding the different components of the framework and they interact with each other.
 
+**`app folder`**
+All the applications that you will create live this folder. For example, the application that we used to test the installation is in this folder. Each application is a folder of its own and it consists of the following:
+
++ `main.js`: The VueJS script file
+
++ `index.html`: The markup HTML file that will reference the VueJS instance
 
 ## Let's get through the basics
 
