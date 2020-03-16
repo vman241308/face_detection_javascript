@@ -474,7 +474,7 @@ For any other face that it detects and that does not have a model, it will displ
 
 <br />
 
-> The code for this app is in the `app` > `example2` folder of this package
+> The code for this app is in the `app` > `example3` folder of this package
 
 <br />
 
