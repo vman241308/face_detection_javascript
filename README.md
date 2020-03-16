@@ -78,7 +78,7 @@ All the applications that you will create reside in this folder. For example, `b
 
 <br/>
 
-#### ** `app template`
+#### **`app template`**
 
 In the `app` folder, an `app_template` folder with a template HTML markup and Vue script is provided for your convenience. You can simply copy this folder and rename it with each new `app`.
 
@@ -331,8 +331,80 @@ var app = new Vue({
 
 <br />
 
+> The code for this app is in the `app` > `example1` folder of this package
+
+<br />
+
 
 ### App 2: Profile Faces
+
+In the first application, all we did is load the default sandbox of the FaceDetect framework. All the default sandbox does is detect the faces. For this second application, we would like to detect more features of the detected faces (such as gender for example). The trained models that FaceDetect uses can detect: age, gender and 4 emotions (sad, happy, angry and neutral).
+
+In order to do that, FaceDetect provides a way to activate/deactivate certain properties of the engine and pass them in a JSON format to the framework. Some of these properties are mandatory.
+
+```JSON
+{
+  name: 'Full Detection',  // MANDATORY: name that will be displayed on the UI trigger
+ 
+  method: this.detector.draw,  // MANDATORY: calls the FaceDetect drawing function that will draw the values on top of the detections
+ 
+  options: {
+	   welcome: "Detect faces, genders, ages and expressions", // OPTIONAL: message that will be displayed in the infobar
+			
+	   detection: true, // OPTIONAL: draws the rectangle around the detected faces
+			
+	   landmarks: true, // OPTIONAL: draws the contour of the detected faces
+			
+	   gender: true, // OPTIONAL: detects the gender and displays it around the detected faces
+			
+	   expression: true, // OPTIONAL: detects the emotion and displays it around the detected faces
+			
+	   age: true // OPTIONAL: detects the age and displays it around the detected faces
+  }
+}
+
+```
+
+The Vue script would then consist of calling the FaceDetect `loadApp` method just like we did in the first example and passing the JSON as an argument to it. 
+
+```js
+
+var detector = new FaceDetector('detection');
+
+var app = new Vue({
+  el: '#app',
+  data () {
+    return {
+        detector: detector
+
+    }
+  },
+  /* upon object load, the following will be executed */
+  mounted () {
+      
+      // Passing the settings to the loadApp method
+      this.detector.loadApp({
+          name: 'Full Detection',
+		  method: this.detector.draw,
+          options: {
+               welcome: "Detect faces, genders, ages and expressions",
+               detection: true,
+			   landmarks: true,
+               gender: true,
+               expression: true,
+               age: true
+          }
+      });
+      
+  }
+
+});
+
+```
+
+<br />
+
+> The code for this app is in the `app` > `example2` folder of this package
 
 <br />
 
