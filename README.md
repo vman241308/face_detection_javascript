@@ -428,7 +428,7 @@ That folder needs to be placed in `facedetect` > `recognition` > `<name of perso
 
 <br />
 
-> So for example, there is a model already defined in the package to recognize the superhero Flash. If you navigate to the `facedetect` > `recognition` folder, you will find a `Flash` folder containing 6 different PNGs of the Flash numbered 1 to 6.
+> As an example, there is a model already defined in the package to recognize the superhero Flash. If you navigate to the `facedetect` > `recognition` folder, you will find a `Flash` folder containing 6 different PNGs of the Flash numbered 1 to 6.
 
 <br />
 
