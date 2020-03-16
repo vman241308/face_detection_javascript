@@ -126,9 +126,9 @@ The FaceDetect `app` is a Vue application that - similarly to all Vue applicatio
 
 <br />
 
-#### The `basic` app as a starting point
+#### The `basic` and `app_template` apps
 
-Every application that you create resides in the `app` folder. The `basic` app that comes with the package is for illustration and testing purposes. The `app_template` folder can be duplicated within the `app` folder and renamed as a starting point for your application.
+Every application that you create resides in the `app` folder. The `basic` app that comes with the package illustrates the usage of the FaceDetect methods and properties. The `app_template` is a barebone folder structure that can be duplicated within the `app` folder and renamed as a starting point for your application.
 
 <br />
 
