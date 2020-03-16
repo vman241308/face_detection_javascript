@@ -352,7 +352,7 @@ In order to do that, FaceDetect provides a way to activate/deactivate certain pr
 	   welcome: "Detect faces, genders, ages and expressions", // OPTIONAL: message that will be displayed in the infobar
 			
 	   detection: true, // OPTIONAL: draws the rectangle around the detected faces
-			
+	
 	   landmarks: true, // OPTIONAL: draws the contour of the detected faces
 			
 	   gender: true, // OPTIONAL: detects the gender and displays it around the detected faces
