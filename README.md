@@ -342,7 +342,7 @@ In the first application, all we did is load the default sandbox of the FaceDete
 
 In order to do that, FaceDetect provides a way to activate/deactivate certain properties of the engine and pass them in a JSON format to the framework. Some of these properties are mandatory.
 
-```JSON
+```js
 {
   name: 'Full Detection',  // MANDATORY: name that will be displayed on the UI trigger
  
