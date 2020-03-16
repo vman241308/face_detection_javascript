@@ -49,7 +49,7 @@ The FaceDetect package can be downloaded from Github by either downloading the Z
 git clone git@github.com:DoryAzar/facedetect.git
 
 ```
-
+<br />
 
 ### Testing the package
 
@@ -58,7 +58,7 @@ In order to run that application, navigate to the folder where FaceDetect was do
 
 > If you downloaded the package in your server root then you should be able to run it directly through this url: <http://localhost/facedetect/app/basic>
 
-
+<br />
 
 ### Understanding the file structure
 
@@ -72,8 +72,7 @@ All the applications that you will create live this folder. For example, the app
 
 + `index.html`: The markup HTML file that will reference the VueJS instance
 
-
-
+<br/>
 
 #### **`facedetect folder`**
 
@@ -99,6 +98,8 @@ Detection and Recognition are two different concepts. While both use machine lea
 + **Face detection**: Face detection is about identifying a human face among all other "things" perceived through either an image or a video. So for example, a picture or a video can have people, objects, scenery etc... Face detection is when the system is capable of pointing out the presence of a human face among all those other things.
 
 + **Face recognition**: Recognition is about identifying who the human face is among all other faces and things perceived. So for example, Face recognition is when the system is capable of pointing out "Flash" among all other superheroes in a picture or a video.
+
+<br />
 
 ### Understanding the FaceDetect `app`
 
