@@ -30,7 +30,7 @@ Artificial Intelligence (AI) and Machine Learning in particular don't have to be
 
 * [face-api library](https://github.com/justadudewhohacks/face-api.js/): this project uses the face api javascript library developed by Vincent Muhler
 
-* detect.js: Proprietary open source class that I created to make the use of the face-api library easier to use and to integrate in third party applications and frameworks
+* detect.js: Proprietary open source class that I created to make the use of the face-api library easier to use and to integrate in third party applications and frameworks. `detect.js` is included in the package
 
 * [TensorFlow](https://www.tensorflow.org/): Tensor flow is an end-to-end open source platform with comprehensive tools and libraries that lets developers easily build machine learning powered applications
 
@@ -188,8 +188,45 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 #### The Vue Javascript
 
+FaceDetect is a framework that was designed to work as a third-party library with any Javascript code. In this study, we focus primarily on running FaceDetect with Vue. Since FaceDetect was not written as a Vue component per se, it will need to be instantiated as part of the Vue script that is serving the markup.
+
+FaceDetector is the main object of the FaceDetect framework. It can be instantiated in the Vue script by providing it with the HTML ID of the media source. It is therefore important to make sure that the markup for either an image or a video has an id attribute.
+
+The main structure of the Vue script should look like this:
+
+```js
+
+// make sure to use the HTML id of the media source
+var detector = new FaceDetector('detection');
+
+var app = new Vue({
+  el: '#app',
+  data () {
+    return {
+        detector: detector, /* important */
+        env: env
+
+    }
+  },
+  /* Method Definition  */
+  methods: {
+      
+      
+  },
+  /* upon object load, the following will be executed */
+  mounted () {
+      
+      
+  }
+
+});
 
 
+```
+
+> The `basic` app included in the package shows you examples of the HTML markup as well as the Vue script that serves it.
+
+<br />
 
 ## Let's have some fun
 
