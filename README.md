@@ -107,6 +107,9 @@ FaceDetect relies on an important principle: "First you detect then you do somet
 
 The FaceDetect `app` is a Vue application that - similarly to all Vue applications - relies on both an HTML markup file and a Javascript file.
 
+
+
+
 #### The `basic` app as a starting point
 
 Every application that you create resides in the `app` folder. The `basic` app that comes with the package is for illustration and testing purposes. The `basic` folder can be duplicated within the `app` folder and renamed as a starting point for your application.
