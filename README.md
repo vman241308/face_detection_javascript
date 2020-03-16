@@ -70,13 +70,19 @@ Just like any framework, FaceDetect comes with a structure of its own. Understan
 
 #### **`app folder`**
 
-All the applications that you will create live this folder. For example, the application that we used to test the installation is in this folder. Each application is a folder of its own and it consists of the following:
+All the applications that you will create reside in this folder. For example, `basic` - the application that we used to test the installation - is also in this folder. Each application is a folder of its own and it consists of the following:
 
 + `main.js`: The VueJS script file
 
 + `index.html`: The markup HTML file that will reference the VueJS instance
 
 <br/>
+
+#### ** `app template`
+
+In the `app` folder, an `app_template` folder with a template HTML markup and Vue script is provided for your convenience. You can simply copy this folder and rename it with each new `app`.
+
+<br />
 
 #### **`facedetect folder`**
 
@@ -115,7 +121,7 @@ The FaceDetect `app` is a Vue application that - similarly to all Vue applicatio
 
 #### The `basic` app as a starting point
 
-Every application that you create resides in the `app` folder. The `basic` app that comes with the package is for illustration and testing purposes. The `basic` folder can be duplicated within the `app` folder and renamed as a starting point for your application.
+Every application that you create resides in the `app` folder. The `basic` app that comes with the package is for illustration and testing purposes. The `app_template` folder can be duplicated within the `app` folder and renamed as a starting point for your application.
 
 <br />
 
@@ -234,16 +240,107 @@ var app = new Vue({
 
 ## Let's have some fun
 
-### Your first Face Detection application
+The best way to explore the powerful features of the FaceDetect framework is to use them in actual examples. As part of this study, we will show you how you could make use of the framework to quickly create face detection and recognition applications.
+
+In every `app` that we will create, we recommend that you duplicate the `app_template` folder provided, renaming it and adjusting the HTML markup as well as the Vue script when needed. 
+
+In all of the app examples, we will be detecting and/or recognizing faces from a webcam stream. Therefore, the HTML Markup will always be the same:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type", content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+        <title>Face Detect</title>
+
+        <!-- Stylesheet and head scripts go here -->
+        <link rel="stylesheet" href="../../facedetect/css/styles.css">
+		
+		<!-- Initialization scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+        <script src="../../facedetect/scripts/face-api.min.js" defer></script>
+        <script src="../../facedetect/scripts/detect.js" defer></script>
+		<script src="scripts/main.js" defer></script>
+
+    </head>
 
 
-### Application that detects age, gender and emotions
+    <body>
+        <!-- Beginning of the app -->
+        <div id="app">
+            <header>
+                <h1>Face Detect</h1>
+            </header>
+            <section id="infobar"></section>
+            <section id="detector">
+                
+                <!-- media can be a webcam -->
+                <video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
+                
+            </section>
+
+            <section class="controls">
+                <div id="apps"></div>
+            </section>
+        </div>
+      
+    </body>
+
+</html>
+
+```
+
+<br />
+
+### 1. App 1: Simple Face Detection
+
+The first `app` we are going to create is a simple face detection application that detects all faces from a webcam stream. As much as this sounds complex, with the FaceDetect framework it can actually be done in one line of code in the Vue `main.js` script.
 
 
-### Your first Face Recognition application
+```js
+
+var detector = new FaceDetector('detection');
+
+var app = new Vue({
+  el: '#app',
+  data () {
+    return {
+        detector: detector
+
+    }
+  },
+  /* upon object load, the following will be executed */
+  mounted () {
+      
+      // Load general detection
+      this.detector.loadApp();
+      
+  }
+
+});
 
 
-### Create your custom application
+```
+
+<br />
+
+> Remember, you can duplicate `app_template` and rename it as a starting point
+
+<br />
+
+
+### 2. Application that detects age, gender and emotions
+
+<br />
+
+### 3. Your first Face Recognition application
+
+<br />
+
+### 4. Create your custom application
 
 <br />
 

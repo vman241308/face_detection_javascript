@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type", content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1">
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+        <title>Face Detect</title>
+
+        <!-- Stylesheet and head scripts go here -->
+        <link rel="stylesheet" href="../../facedetect/css/styles.css">
+		
+		<!-- Initialization scripts -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+        <script src="../../facedetect/scripts/face-api.min.js" defer></script>
+        <script src="../../facedetect/scripts/detect.js" defer></script>
+		<script src="scripts/main.js" defer></script>
+
+    </head>
+
+
+    <body>
+        <!-- Beginning of the app -->
+        <div id="app">
+            <header>
+                <h1>Face Detect</h1>
+            </header>
+            <section id="infobar"></section>
+            <section id="detector">
+				
+				<!-- media can be an image -->
+                <!--<img id="detection" class="show" src="">-->
+                
+                <!-- media can be a video -->
+                <!--<video id="detection"  src="<path to local video>" type="video/mp4" width="720" height="560" class="show" autoplay="autoplay" muted playsinline controls></video>-->
+                
+                <!-- media can be a webcam -->
+                <video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
+                
+            </section>
+
+            <section class="controls">
+                <div id="apps"></div>
+            </section>
+        </div>
+      
+    </body>
+
+</html>
