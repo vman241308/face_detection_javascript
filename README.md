@@ -295,7 +295,7 @@ In all of the app examples, we will be detecting and/or recognizing faces from a
 
 <br />
 
-### 1. App 1: Simple Face Detection
+### App 1: Simple Face Detection
 
 The first `app` we are going to create is a simple face detection application that detects all faces from a webcam stream. As much as this sounds complex, with the FaceDetect framework it can actually be done in one line of code in the Vue `main.js` script.
 
@@ -332,15 +332,15 @@ var app = new Vue({
 <br />
 
 
-### 2. Application that detects age, gender and emotions
+### App 2: Profile Faces
 
 <br />
 
-### 3. Your first Face Recognition application
+### App 3: Recognize me
 
 <br />
 
-### 4. Create your custom application
+### App 4: Custom
 
 <br />
 
