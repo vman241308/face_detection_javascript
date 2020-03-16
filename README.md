@@ -441,7 +441,7 @@ That folder needs to be placed in `facedetect` > `recognition` > `<name of perso
 
 **Step 2: Run recognition**
 
-Running the recognition is as easy as loading a detection app. 
+Running the recognition is as easy as loading a detection app with some specific parameters. One of the parameters is the `models` that the system should recognize. 
 
 ```js
 
