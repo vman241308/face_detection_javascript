@@ -44,6 +44,13 @@ Artificial Intelligence (AI) and Machine Learning in particular don't have to be
 
 ## Let's get started
 
+### Requirements
+
++ Internet connection: FaceDetect references a CDN distribution of Vue that requires a connection to the internet
+
++ Webcam: The FaceDetect framework does not require a webcam. However, the examples in this study are designed to detect faces live from a webcam stream
+
+<br />
 
 ### Installation
 
