@@ -11,6 +11,7 @@
 + [Let's get started](https://github.com/DoryAzar/facedetect#lets-get-started)
 + [Let's get through the basics](https://github.com/DoryAzar/facedetect#lets-get-through-the-basics)
 + [Let's have some fun](https://github.com/DoryAzar/facedetect#lets-have-some-fun)
++ [Known Issues](https://github.com/DoryAzar/facedetect#known-issues)
 
 <br />
 
@@ -240,5 +241,15 @@ var app = new Vue({
 
 
 ### Create your custom application
+
+<br />
+
+## Known Issues
+
++ FaceDetect works on Chrome, Safari and FireFox from the local machine
+
++ In production, some browsers (Safari) require a secure SSL connection (https) for webcam streaming
+
++ "Puppeteer" (the line drawing feature) is not compatible with Safari
 
 
