@@ -410,7 +410,74 @@ var app = new Vue({
 
 ### App 3: Recognize me
 
+In all the applications that we created thus far, we have only been detecting faces. In this third example, we are going to create an example that not just detects faces in the webcam, but also recognizes specific faces among the ones detected.
+
 <br />
+
+> If you need to understand better the distinction between Detection and Recognition, make sure you read [this section](https://github.com/DoryAzar/facedetect#understanding-face-detection-and-recognition)
+
+<br />
+
+In order to do this, we need to create models of the people that we would want to recognize. Models are nothing more but face pictures of those people in different angles and perspectives. The more samples we have, the more accurate the recognition. We then need to tell FaceDetect to compare the detections to these models and identify the faces that it recognizes directly on top of the video.
+
+This can be done in 2 steps:
+
+**Step 1: Define the recognition models**
+
+The easiest way to define a recognition model is to create a folder for each person containing many pictures of that person. Each person to be recognized will have a folder in their name and the pictures inside **must be PNGs and must be named with a number**.
+That folder needs to be placed in `facedetect` > `recognition` > `<name of person>`. 
+
+> So for example, there is a model already defined in the package to recognize the superhero Flash. If you navigate to the `facedetect` > `recognition` folder, you will find a `Flash` folder containing 6 different PNGs of the Flash numbered 1 to 6.
+
++ Go ahead and create a folder in `facedetect` > `models` that has your firstname. Keep the `Flash` folder, we will use it for testing
+
++ In this new folder, add 6 PNG images of you from different angles 
+
++ Make sure that the PNGs are named 1.PNG, 2.PNG etc...
+
+
+<br />
+
+
+**Step 2: Run recognition**
+
+Running the recognition is as easy as loading a detection app. 
+
+```js
+
+<!-- Vue example -->
+this.detector.loadApp({
+    name: "Find me", // MANDATORY: UI button label that triggers the recognition
+					   
+    method: this.detector.recognize, // MANDATORY: FaceDetect method that will call the recognition engine
+					   
+    models: {
+	
+         labels: ['Flash', 'Your Name'], // MANDATORY: Make sure to respect the case. Array of all the names of the people which are also the names of the folders in the structure. 
+			 
+         sampleSize: 6 // number of pictures per person (this number must be the same for all)
+    },
+    options: {
+        welcome: "Can you find me?", // OPTIONAL: This is the message that will be displayed in the infobar
+			  
+        recognition: true // the recognition engine needs to be activated
+    },
+    algorithm: faceapi.SsdMobilenetv1Options // OPTIONAL: The detection algorithm that will be used
+});
+
+```
+
+Go ahead and test out the application. If you took pictures of yourself, once you stand in front of the webcam, the system will be able to identify you and to show your name (which also is the folder name) around your face. For more fun, you can also have the Flash image on your phone and place it in front of your computer webcam (where the application is running). The system will be able to identify and distinguish both you and the Flash.
+
+For any other face that it detects and that does not have a model, it will display an "unknow" label around them.
+
+
+<br />
+
+> The code for this app is in the `app` > `example2` folder of this package
+
+<br />
+
 
 ### App 4: Custom
 
