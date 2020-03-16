@@ -344,25 +344,25 @@ In order to do that, FaceDetect provides a way to activate/deactivate certain pr
 
 ```js
 {
-  name: 'Full Detection',  // MANDATORY: name that will be displayed on the UI trigger
- 
-  method: this.detector.draw,  // MANDATORY: calls the FaceDetect drawing function that will draw the values on top of the detections
- 
-  options: {
-	   welcome: "Detect faces, genders, ages and expressions", // OPTIONAL: message that will be displayed in the infobar
-			
-	   detection: true, // OPTIONAL: draws the rectangle around the detected faces
+  name: 'Full Detection', // MANDATORY: UI button label that triggers the detection
 	
-	   landmarks: true, // OPTIONAL: draws the contour of the detected faces
-			
-	   gender: true, // OPTIONAL: detects the gender and displays it around the detected faces
-			
-	   expression: true, // OPTIONAL: detects the emotion and displays it around the detected faces
-			
-	   age: true // OPTIONAL: detects the age and displays it around the detected faces
+  method: this.detector.draw, // MANDATORY: FaceDetect method that will draw the different detections on top of the detected faces
+	
+  options: {
+	
+	   welcome: "Detect faces, genders, ages and expressions", // OPTIONAL: Message that will be displayed in the infobar of the UI
+	
+	   detection: true, // OPTIONAL: Draws the rectangle around the detected faces
+	
+	   landmarks: true, // OPTIONAL: Draws the contour of the detected faces
+	
+	   gender: true, // OPTIONAL: Displays the gender of the detected faces
+	
+	   expression: true, // OPTIONAL: Displays the detected emotion of the detected faces
+	
+	   age: true // OPTIONAL: Displays the age of the detected faces
   }
 }
-
 ```
 
 The Vue script would then consist of calling the FaceDetect `loadApp` method just like we did in the first example and passing the JSON as an argument to it. 
