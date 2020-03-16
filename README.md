@@ -420,7 +420,6 @@ In all the applications that we created thus far, we have only been detecting fa
 
 In order to do this, we need to create models of the people that we would want to recognize. Models are nothing more but face pictures of those people in different angles and perspectives. The more samples we have, the more accurate the recognition. We then need to tell FaceDetect to compare the detections to these models and identify the faces that it recognizes directly on top of the video.
 
-This can be done in 2 steps:
 
 **Step 1: Define the recognition models**
 
