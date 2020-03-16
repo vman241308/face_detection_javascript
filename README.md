@@ -427,7 +427,11 @@ This can be done in 2 steps:
 The easiest way to define a recognition model is to create a folder for each person containing many pictures of that person. Each person to be recognized will have a folder in their name and the pictures inside **must be PNGs and must be named with a number**.
 That folder needs to be placed in `facedetect` > `recognition` > `<name of person>`. 
 
+<br />
+
 > So for example, there is a model already defined in the package to recognize the superhero Flash. If you navigate to the `facedetect` > `recognition` folder, you will find a `Flash` folder containing 6 different PNGs of the Flash numbered 1 to 6.
+
+<br />
 
 + Go ahead and create a folder in `facedetect` > `models` that has your firstname. Keep the `Flash` folder, we will use it for testing
 
