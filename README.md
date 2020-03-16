@@ -119,9 +119,8 @@ Every application that you create resides in the `app` folder. The `basic` app t
 
 The HTML markup file (index.html for example) is the user interface that will define the source of the face detections (image or video) and any other controls needed to make something useful with the detections. It should also include the FaceDetect needed libraries and the Vue JS framework reference.
 
-**The HTML markup has 4 key elements that are designed to work with and without Vue:**
+The HTML markup has 4 key elements that are designed to work with and without Vue:
 
-<br />
 
 + **`detector section`**: `FaceDetect` is identified in the markup by the id **`detector`**. `FaceDetect` will be encapsulated within that block. If you are using Vue, the `detector` block lives within the Vue app id.
 
