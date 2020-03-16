@@ -395,6 +395,7 @@ var app = new Vue({
 		  method: this.detector.draw,
           options: {
                welcome: "Detect faces, genders, ages and expressions",
+					
                detection: true,
 			   landmarks: true,
                gender: true,
