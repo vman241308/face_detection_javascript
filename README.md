@@ -1,6 +1,9 @@
 # FaceDetect: Face detection & recognition framework
 + By: Dory Azar
-+ Production URL: [e28p1.broadposter.com](http://e28p1.broadposter.com)
++ Video Demo: [Recorded Examples](https://www.youtube.com/watch?v=vytJRSOeZ8k&feature=youtu.be)
++ Live Demo: [FaceDetect Examples](http://facedetect.caligrafy.com)
+
+![](https://github.com/DoryAzar/e28/blob/master/independent-study/resources/facedetect1.png)
 
 <br />
 
