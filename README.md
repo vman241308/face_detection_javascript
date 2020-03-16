@@ -242,7 +242,11 @@ var app = new Vue({
 
 The best way to explore the powerful features of the FaceDetect framework is to use them in actual examples. As part of this study, we will show you how you could make use of the framework to quickly create face detection and recognition applications.
 
-In every `app` that we will create, we recommend that you duplicate the `app_template` folder provided, renaming it and adjusting the HTML markup as well as the Vue script when needed. 
+<br />
+
+> In every `app` that we will create, we recommend that you duplicate the `app_template` folder provided, renaming it and adjusting the HTML markup as well as the Vue script when needed. 
+
+<br />
 
 In all of the app examples, we will be detecting and/or recognizing faces from a webcam stream. Therefore, the HTML Markup will always be the same:
 
@@ -324,10 +328,6 @@ var app = new Vue({
 
 
 ```
-
-<br />
-
-> Remember, you can duplicate `app_template` and rename it as a starting point
 
 <br />
 
