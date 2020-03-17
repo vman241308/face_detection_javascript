@@ -14,6 +14,7 @@
 + [Let's get started](https://github.com/DoryAzar/facedetect#lets-get-started)
 + [Let's get through the basics](https://github.com/DoryAzar/facedetect#lets-get-through-the-basics)
 + [Let's have some fun](https://github.com/DoryAzar/facedetect#lets-have-some-fun)
++ [Final Thoughts](https://github.com/DoryAzar/facedetect#final-thoughts)
 + [Known Issues](https://github.com/DoryAzar/facedetect#known-issues)
 
 <br />
@@ -636,6 +637,11 @@ The last step is really to display the counts in the HTML markup. This is nothin
 > The code for this app is in the `app` > `example4` folder of this package
 
 <br />
+
+
+## Final Thoughts
+
+
 
 ## Known Issues
 
