@@ -599,6 +599,8 @@ var app = new Vue({
 
 ```
 
+<br />
+
 **Step 4: Display the counts in the HTML markup**
 
 The last step is really to display the counts in the HTML markup. This is nothing more but using Vue interpolation to display the 2 variables `maleCount` and `femaleCount`. In this case, we chose to adhere to the default styles provided by the FaceDetect CSS but any HTML structure and styling could be applied.
