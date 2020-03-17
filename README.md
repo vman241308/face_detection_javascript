@@ -633,6 +633,10 @@ The last step is really to display the counts in the HTML markup. This is nothin
 
 <br />
 
+> The code for this app is in the `app` > `example4` folder of this package
+
+<br />
+
 ## Known Issues
 
 + FaceDetect works on Chrome, Safari and FireFox from the local machine
