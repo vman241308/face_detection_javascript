@@ -440,7 +440,7 @@ That folder needs to be placed in `facedetect` > `recognition` > `<name of perso
 
 <br />
 
-+ Go ahead and create a folder in `facedetect` > `models` that has your firstname. Keep the `Flash` folder, we will use it for testing
++ Go ahead and create a folder in `facedetect` > `recognition` that has your firstname. Keep the `Flash` folder, we will use it for testing
 
 + In this new folder, add 6 PNG images of you from different angles 
 
@@ -452,7 +452,7 @@ That folder needs to be placed in `facedetect` > `recognition` > `<name of perso
 
 **Step 2: Run recognition**
 
-Running the recognition is as easy as loading a detection app with some specific parameters. One of the parameters is the `models` that the system should recognize. 
+Running the recognition is as easy as loading a detection app with 3 specific parameters: the `method`,  `models` and `recognition` parameters.
 
 ```js
 
@@ -480,7 +480,7 @@ this.detector.loadApp({
 
 Go ahead and test out the application. If you took pictures of yourself, once you stand in front of the webcam, the system will be able to identify you and to show your name (which also is the folder name) around your face. For more fun, you can also have the Flash image on your phone and place it in front of your computer webcam (where the application is running). The system will be able to identify and distinguish both you and the Flash.
 
-For any other face that it detects and that does not have a model, it will display an "unknow" label around them.
+For any other face that it detects and that does not have a model, it will display an "unknown" label around them.
 
 
 <br />
@@ -643,7 +643,7 @@ The last step is really to display the counts in the HTML markup. This is nothin
 
 ## Final Thoughts
 
-FaceDetect is was designed with the intent to abstract the underlying machine learning concepts that drive face detection and recognition. In this study, we gave you a glimpse on what how a few lines of code can allow you to introduce face detection and recognition in your applications.
+FaceDetect is designed with the intent to abstract the underlying machine learning concepts that drive face detection and recognition. In this study, we gave you a glimpse on how a few lines of code can allow you to introduce face detection and recognition in your applications.
 
 The framework is flexible to accommodate the needs of developers of all levels. There are more advanced features and properties that have not been illustrated in this study that are worth highlighting in conclusion.
 
