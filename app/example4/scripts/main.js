@@ -29,6 +29,7 @@ var app = new Vue({
 				  }
 		  });
       }
+
   },
   /* upon object load, the following will be executed */
   mounted () {

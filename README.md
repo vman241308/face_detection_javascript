@@ -496,6 +496,8 @@ In the examples thus far, we used the FaceDetect sandboxed features and we were 
 
 In order to do that, we need to create either a detection or a recognition `app` that tells FaceDetect to just provide us with the data and our application handles all the rest. Let's imagine that we want to create an application that counts the number of men and women that it sees in the webcam and displays them in the UI.
 
+<br />
+
 **Step 1: Load FaceDetect detection**
 
 Similarly to what we have seen in the other examples, this example also needs to initiate the detections. However, unlike the other examples, we are not looking to draw rectangles or display specific face information around the detected faces. What we need is for FaceDetect to allow us to hook into every detection cycle and execute our own logic.
@@ -641,7 +643,78 @@ The last step is really to display the counts in the HTML markup. This is nothin
 
 ## Final Thoughts
 
+FaceDetect is was designed with the intent to abstract the underlying machine learning concepts that drive face detection and recognition. In this study, we gave you a glimpse on what how a few lines of code can allow you to introduce face detection and recognition in your applications.
 
+The framework is flexible to accommodate the needs of developers of all levels. There are more advanced features and properties that have not been illustrated in this study that are worth highlighting in conclusion.
+
+### Hooks
+
+In example 4, we have seen one type of hook that allows us to inject a piece of logic (through a custom method) that gets executed at every detection or recognition cycle.
+
+There is another type of hook that instructs FaceDetect to execute a piece of code **before** detections or recognitions start. Basically, it forces the FaceDetect features to be called and controlled by developers. This is a way to give the ability for the developer to take control over the framework methods and properties.
+
+In order to get into this mode, a FaceDetect app needs to be loaded with a `custom` set to true. Doing so, will transfer execution to the `callbackMethod` and any other FaceDetect feature needs to be called explicitly from within it.
+
+```js
+    this.loadApp({
+          name: "Custom callback",
+          method: this.callbackMethod,
+          custom: true, // set to true if you want the method to do something else before calling in FaceDetect features
+          options: {
+              detection: true
+          }
+          
+      });
+
+```
+
+### FaceDetect Features
+
+In order to create custom applications, FaceDetect provides 2 different types of hooks. One that we have seen in example 4 and another one that we just explained in the previous section. In both these modes, the program execution is passed on to a callback method. In that callback method, all the FaceDetect features can be leveraged to create powerful applications. 
+
+Here is the list of all the methods and properties that FaceDetect provides:
+
+```js
+
+// PROPERTIES
+
+facedetector.app // Everything about the app: name, options, detections, recognitions, canvas
+
+facedetector.app.options // All the options defined in the app
+
+facedetector.app.canvas // All the properties of the canvas that is created on top of the media source 
+
+facedetector.app.detections // Detections when the detection engine is running
+
+facedetector.app.recognitions // Recognitions when the recognition engine is running
+
+
+// METHODS
+
+facedetector.loadApp(app); // load another app
+
+(facedetector.detectFaces(app, facedetector))() // self invoking function to start face detection
+
+facedetector.detect(callback, recognize = false, fetchRate = 100) // starts a parallel stream that captures any detections or recognitions when available
+
+facedetector.prepareCanva(options = null) // returns a new canvas on top of the media source
+
+facedetector.draw(facedetector) // draws the detections on the canvas
+
+facedetector.loadRecognition({ labels: [], images: [], sampleSize: 6}) // load models to recognize by the recognition engine
+
+facedetector.recognize(facedetector) // runs the recognition engine and draws on canvas. Must make sure that detections is started before
+
+facedetector.fetchImage(canvas, media) // takes a canvas capture of the media and returns a blob data image (data url)
+
+facedetector.display(message, output) // displays a message in the infobar and gives it an ID as specified by the 'output' input
+
+facedetector.clearDisplay() // clears the infobar display
+
+
+```
+
+<br />
 
 ## Known Issues
 
