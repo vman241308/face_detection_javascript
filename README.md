@@ -647,6 +647,8 @@ FaceDetect is was designed with the intent to abstract the underlying machine le
 
 The framework is flexible to accommodate the needs of developers of all levels. There are more advanced features and properties that have not been illustrated in this study that are worth highlighting in conclusion.
 
+<br />
+
 ### Hooks
 
 In example 4, we have seen one type of hook that allows us to inject a piece of logic (through a custom method) that gets executed at every detection or recognition cycle.
@@ -667,6 +669,8 @@ In order to get into this mode, a FaceDetect app needs to be loaded with a `cust
       });
 
 ```
+
+<br />
 
 ### FaceDetect Features
 
