@@ -495,7 +495,7 @@ In the examples thus far, we used the FaceDetect sandboxed features and we were 
 
 In order to do that, we need to create either a detection or a recognition `app` that tells FaceDetect to just provide us with the data and our application handles all the rest. Let's imagine that we want to create an application that counts the number of men and women that it sees in the webcam and displays them in the UI.
 
-**Step 1: Load a FaceDetect detection app
+**Step 1: Load FaceDetect detection**
 
 Similarly to what we have seen in the other examples, this example also needs to initiate the detections. However, unlike the other examples, we are not looking to draw rectangles or display specific face information around the detected faces. What we need is for FaceDetect to allow us to hook into every detection cycle and execute our own logic.
 
