@@ -489,7 +489,145 @@ For any other face that it detects and that does not have a model, it will displ
 <br />
 
 
-### App 4: Custom
+### App 4: Custom App
+
+In the examples thus far, we used the FaceDetect sandboxed features and we were able to do face detection and face recognition by simply manipulating some control settings. In this part, we are going to shed light on how we could leverage the FaceDetect framework to do whatever we want with the detections and the recognitions that its engine provides.
+
+In order to do that, we need to create either a detection or a recognition `app` that tells FaceDetect to just provide us with the data and our application handles all the rest. Let's imagine that we want to create an application that counts the number of men and women that it sees in the webcam and displays them in the UI.
+
+**Step 1: Load a FaceDetect detection app
+
+Similarly to what we have seen in the other examples, this example also needs to initiate the detections. However, unlike the other examples, we are not looking to draw rectangles or display specific face information around the detected faces. What we need is for FaceDetect to allow us to hook into every detection cycle and execute our own logic.
+
+In order to do that, we need to pass our own callback method to the app settings. Let's assume that our method will be called `countGender`.
+
+```js
+
+// In the Vue script
+mounted () {
+
+  this.detector.loadApp({
+	  name: "Count Gender", // name of the trigger button in the UI
+	  method: this.countGender, // assuming our method is called countGender
+	  options: {
+		  detection: true
+	  }
+
+  });
+}
+
+```
+<br />
+
+**Step 2: Prepare the custom method**
+
+The second step is to create a custom Vue method `countGender` that goes through the detections and increments the count of men or women based on the faces information that it detects. This example is mainly meant to illustrate how we can have access to the detections and in what format FaceDetect provides them to us. 
+
+FaceDetect enables us to have access to the entire set of properties of the FaceDetect instance through the custom method by making us define a name for that instance that will be passed as an argument to the custom method. Therefore, the `countGender` method needs to take at least one argument and that argument should be the reference to the FaceDetect object which could easily give us access to the detections as shown in the code below.
+
+```js
+
+methods: {
+	
+  countGender: function(facedetector) {	  
+
+	  // facedetector will reference the FaceDetect object
+									   
+	  // facedetector.app.detections will provide an array of all the detected faces every cycle of detection (100ms by default)	   
+	  console.log(facedetector.app.detections);
+  }
+}
+
+```
+<br />
+
+> It would be instructive to log the facedetector.app.detections as suggested in the code above to see the complete list of properties that FaceDetect returns for each detection. Here are some: gender, expressions, age etc...
+
+<br />
+
+**Step 3: Iterate through the detections**
+
+With the method defined, we can now create the logic that allows us to iterate through the detections. For each detection, we need to check the `gender` property in each detection object model and increment either men or women counts. 
+
+```js
+var detector = new FaceDetector('detection');
+
+var app = new Vue({
+  el: '#app',
+  data () {
+    return {
+        detector: detector,
+		femaleCount: 0,
+		maleCount: 0
+
+    }
+  },
+  methods: {
+	
+	  
+	  countGender: function(facedetector) {	  
+		  
+		  // reset the counts every time the method is called
+		  this.femaleCount = 0;
+		  this.maleCount = 0;
+		
+		  
+		  // iterate through the detections and count the number of men and women
+		  facedetector.app.detections.forEach((detection) => {
+			  	  if (detection.gender == 'male') {
+					  this.maleCount++;
+				  } else {
+					  this.femaleCount++;
+				  }
+		  });
+      }
+  },
+  /* upon object load, the following will be executed */
+  mounted () {
+      
+      this.detector.loadApp({
+          name: "Count Gender",
+          method: this.countGender,
+          options: {
+              detection: true
+          }
+          
+      });
+  }
+
+});
+
+```
+
+**Step 4: Display the counts in the HTML markup**
+
+The last step is really to display the counts in the HTML markup. This is nothing more but using Vue interpolation to display the 2 variables `maleCount` and `femaleCount`. In this case, we chose to adhere to the default styles provided by the FaceDetect CSS but any HTML structure and styling could be applied.
+
+```html
+
+<body>
+	<!-- Beginning of the app -->
+	<div id="app">
+		<header>
+			<h1>Face Detect</h1>
+		</header>
+
+		<section id="infobar"><ul><li>men: {{ maleCount }}</li><li>women: {{ femaleCount }}</li></ul></section>
+		<section id="detector">
+
+			<!-- media can be a webcam -->
+			<video id="detection" width="720" height="560" class="show" autoplay="autoplay" muted playsinline></video>
+
+		</section>
+
+		<section class="controls">
+			<div id="apps"></div>
+		</section>
+	</div>
+
+</body>
+
+```
 
 <br />
 
