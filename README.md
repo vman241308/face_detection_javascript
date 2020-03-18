@@ -23,7 +23,7 @@
 
 Detecting human faces and recognizing faces and facial expressions has always been an area of interest for different applications such as games, utilities and even security. With the advancement of machine learning, the techniques of detection and recognition have become more accurate and precise than ever before.
 
-However, machine learning remains a relatively complex field that could feel intimidating or inaccessible to many of us. Luckily, in the last couple of years, several organizations and open source communities have been developing tools and libraries that help abstract the complex mathematical agorithms in order to encourage developers to easily create learning models and train them using any programming languages. 
+However, machine learning remains a relatively complex field that could feel intimidating or inaccessible to many of us. Luckily, in the last couple of years, several organizations and open source communities have been developing tools and libraries that help abstract the complex mathematical algorithms in order to encourage developers to easily create learning models and train them using any programming languages. 
 
 As part of this study, I created a Javascript framework built on top of the work of several open source projects and models with the hope to reduce the entry barrier for developers and to encourage them to focus more on developing innovative applications that make use of face detection and recognition.
 
@@ -55,7 +55,7 @@ Artificial Intelligence (AI) and Machine Learning in particular don't have to be
 
 ### Installation
 
-The FaceDetect package can be downloaded from Github by either downloading the ZIP folder or by running the following command from the terminal:
+The FaceDetect package can be downloaded from the [FaceDetect Github](https://github.com/DoryAzar/facedetect) repository by either downloading the ZIP folder or by running the following command from the terminal:
 
 ```bash
 git clone git@github.com:DoryAzar/facedetect.git
@@ -74,9 +74,9 @@ In order to run that application, navigate to the folder where FaceDetect was do
 
 ### Understanding the file structure
 
-Just like any framework, FaceDetect comes with a structure of its own. Understanding that structure is key to understanding the different components of the framework and they interact with each other.
+Just like any framework, FaceDetect comes with a structure of its own. Understanding that structure is key to understanding the different components of the framework and how they interact with each other.
 
-#### **`app folder`**
+#### **`app` folder**
 
 All the applications that you will create reside in this folder. For example, `basic` - the application that we used to test the installation - is also in this folder. Each application is a folder of its own and it consists of the following:
 
@@ -88,19 +88,19 @@ All the applications that you will create reside in this folder. For example, `b
 
 #### **`app template`**
 
-In the `app` folder, an `app_template` folder with a template HTML markup and Vue script is provided for your convenience. You can simply copy this folder and rename it with each new `app`.
+In the `app` folder, an `app_template` folder with a template HTML markup and Vue script is provided for your convenience. You can simply copy this folder and rename it as a starting point for every application that you want to create.
 
 <br />
 
-#### **`facedetect folder`**
+#### **`facedetect` folder**
 
 In this folder lies the core definition of the detection and recognition framework. There are 4 key components to this framework:
 
-+ `FaceDetector Class`: This is the core class for using `FaceDetect` in your application. The core code is in `detect.js` that can be found in the `scripts` folder
++ `FaceDetector` class: This is the core class for using `FaceDetect` in your application. The core code is in `detect.js` that can be found in the `scripts` folder
 
-+ `neural network models`: Every machine learning application relies on trained models to be able to do things such as object detection or recognition. FaceDetect is no exception to that rule and it needs these models to operate properly. These pre-trained models are included in the package and can be found in the `models` folder
++ `models`: Every machine learning application relies on trained models to be able to do things such as object detection or recognition. FaceDetect is no exception to that rule and it needs these models to operate properly. These pre-trained models are included in the package and can be found in the `models` folder
 
-+ `recognition models`: In order to recognize specific faces, `FaceDetect` needs models to compare the detections to. These models are nothing more but a series of pictures of people organized in folders. These need to be created under the folder called `recognition`. As an example, you can find a subfolder called `Flash` that has 6 (PNG) pictures named by number of the superhero Flash. The same mechanism should be used to create more models (pictures of you for example). We will elaborate more on face recognition when we create our first face recognition application
++ `recognition` models: In order to recognize specific faces, `FaceDetect` needs models to compare the detections to. These models are nothing more but a series of pictures of people organized in folders. These need to be created under the folder called `recognition`. As an example, you can find a subfolder called `Flash` that has 6 (PNG) pictures named by number of the superhero Flash. The same mechanism should be used to create more models (pictures of you for example). We will elaborate more on face recognition when we create our first face recognition application
 
 + `faceapi.js`: The FaceAPI developed by Vincent Muhler is included in the package
 
@@ -208,7 +208,7 @@ The HTML markup has 4 key elements that are designed to work with and without Vu
 
 FaceDetect is a framework that was designed to work as a third-party library with any Javascript code. In this study, we focus primarily on running FaceDetect with Vue. Since FaceDetect was not written as a Vue component per se, it will need to be instantiated as part of the Vue script that is serving the markup.
 
-FaceDetector is the main object of the FaceDetect framework. It can be instantiated in the Vue script by providing it with the HTML ID of the media source. It is therefore important to make sure that the markup for either an image or a video has an id attribute.
+`FaceDetector` is the main object of the FaceDetect framework. It can be instantiated in the Vue script by providing it with the HTML ID of the media source. It is therefore important to make sure that the markup for either an image or a video has an id attribute.
 
 The main structure of the Vue script should look like this:
 
