@@ -346,7 +346,7 @@ var app = new Vue({
 
 ### App 2: Profile Faces
 
-In the first application, all we did is load the default sandbox of the FaceDetect framework. All the default sandbox does is detect the faces. For this second application, we would like to detect more features of the detected faces (such as gender for example). The trained models that FaceDetect uses can detect: age, gender and 4 emotions (sad, happy, angry and neutral).
+In the first application, all we did is load the default sandbox of the FaceDetect framework. All the default sandbox does is detect the faces. For this second application, we would like to detect more features of the detected faces (such as gender for example). The trained models that FaceDetect uses can detect: age, gender and 5 emotions (sad, happy, surprised, angry and neutral).
 
 In order to do that, FaceDetect provides a way to activate/deactivate certain properties of the engine and pass them in a JSON format to the framework. Some of these properties are mandatory.
 
