@@ -729,3 +729,7 @@ facedetector.clearDisplay() // clears the infobar display
 + "Puppeteer" (the line drawing feature) is not compatible with Safari
 
 
+## Sponsorship
+
+With your sponsorship, we can continue to bring more features and to share the knowledge with the open source community.
+[Github Sponsorship](https://github.com/sponsors/DoryAzar)
