@@ -4,51 +4,37 @@
  * @dependencies: face-api.js
  **********************************************************************************/
 
- var FaceDetector = class FaceDetector {
+ let FaceDetector = class FaceDetector {
     
     
     constructor(media) {
         
+        // neural network models url
+        const MODEL_URL = '../../facedetect/models';
+
         // load the faceapi models
-        this.load()
-        .then((loaded) => { 
+        Promise.all([
+            // face detection algorithms
+            faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL), // SsdMobilenetv1Options
+
+            faceapi.nets.mtcnn.loadFromUri(MODEL_URL), // MtcnnOptions
+            faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL), // TinyFaceDetectorOptions
+
+            // Models for landmarks, age/gender, recognition and expressions
+            faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+            faceapi.nets.ageGenderNet.loadFromUri(MODEL_URL),
+            faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
+            faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
+        ])
+        .then(() => { 
                 // when loaded start the stream
-                this.media = document.getElementById(media) || null; 
+                this.media = document.querySelector(`#${media}`) || null; 
                 if (this.media && this.media.tagName.toLowerCase() == 'video' && !this.media.src) {
                     this.startStream();
                 }
         })
         .catch((error) => { console.log(error); }); 
-    };
-    
-    /* 
-    * Promise that loads all the models
-    */
-    async load() {
-        // neural network models url
-        const MODEL_URL = '../../facedetect/models';
-        
-        try {
-            var loaded = await Promise.all([
-                // face detection algorithms
-                faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL), // SsdMobilenetv1Options
-
-                //faceapi.nets.mtcnn.loadFromUri(MODEL_URL), // MtcnnOptions
-                faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL), // TinyFaceDetectorOptions
-
-                // Models for landmarks, age/gender, recognition and expressions
-                faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
-                faceapi.nets.ageGenderNet.loadFromUri(MODEL_URL),
-                faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
-                faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
-            ]);
-            
-        } catch(error) {
-            return Promise.reject(new Error(error));
-
-        }
-
-    };
+    }
     
     /* 
     * Method that starts streaming from computer cam 
@@ -70,7 +56,7 @@
             
         });
 
-    };
+    }
     
     
     /* 
@@ -93,7 +79,7 @@
      */
     async loadApp(settings = null) {
 
-        const app = settings? settings : {
+        let app = settings? settings : {
                 name: 'Detect',
                 method: this.draw, // this.recognize
                 //algorithm: faceapi.SsdMobilenetv1Options,
@@ -117,13 +103,13 @@
         }
         
 
-        var button = document.createElement('button');
+        const button = document.createElement('button');
         button.innerHTML = app.name;
         button.id = 'app' + app.id;
         button.addEventListener('click', !app.custom ? this.detectFaces(app, this) : this.custom(app, this));
-        document.getElementById('apps').appendChild(button);
+        document.querySelector('#apps').appendChild(button);
 
-    };
+    }
     
     /* 
      * Method that detects faces throughout the life cycle of the video stream
@@ -138,7 +124,7 @@
             
 
             // Get the canvas ready with the app options
-            const canvas = facedetector.prepareCanva(app.options);
+            let canvas = facedetector.prepareCanva(app.options);
 
 
             // Match the canva size with the video
@@ -154,10 +140,10 @@
                 
 
                 // Detect all the faces present in the stream with Landmarks, Age and Gender, and Facial Expressions
-                const detections = await faceapi.detectAllFaces(facedetector.media, new algorithm()).withFaceLandmarks().withFaceDescriptors().withAgeAndGender().withFaceExpressions();
+                let detections = await faceapi.detectAllFaces(facedetector.media, new algorithm()).withFaceLandmarks().withFaceDescriptors().withAgeAndGender().withFaceExpressions();
 
                 // resize the detections to fit in the canva
-                const resizedDetections = faceapi.resizeResults(detections, displaySize);
+                let resizedDetections = faceapi.resizeResults(detections, displaySize);
                 
                 // expose the detections to the app
                 facedetector.app = app;
@@ -169,8 +155,8 @@
                 app.method(facedetector);
                 
             }, 100); // end interval
-        } // end callback 
-    };
+        }; // end callback 
+    }
     
     
     /* 
@@ -199,19 +185,19 @@
 
         // create a canva from the video media and match its size to the video size
         // If the canva exists then remove it first
-        const existingCanva = document.getElementById('detectfaces') || null;
+        let existingCanva = document.querySelector('#detectfaces') || null;
         if (existingCanva) {
             existingCanva.parentNode.removeChild(existingCanva);
         }
 
         // Create the canva on top of the video and add it to the document
-        const canvas = faceapi.createCanvasFromMedia(this.media);
+        let canvas = faceapi.createCanvasFromMedia(this.media);
         canvas.id = "detectfaces";
-        document.getElementById('detector').append(canvas);
+        document.querySelector('#detector').append(canvas);
 
         return canvas;
 
-    };
+    }
     
     /* 
      * Method that draws different renderings of the detections on the canvas
@@ -224,9 +210,9 @@
      */
      draw(facedetector = this) {
          
-         const detections = facedetector.app.detections || null;
-         const options = facedetector.app.options || null;
-         const canvas = facedetector.app.canvas || null;
+         let detections = facedetector.app.detections || null;
+         let options = facedetector.app.options || null;
+         let canvas = facedetector.app.canvas || null;
 
         // Clear the canva so that it doesn't accumulate drawing at every detection
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
@@ -242,8 +228,8 @@
 
             // for each detection get the landmarks from the api and draw them as a full line
             detections.forEach((result, i) => {
-                const landmark = result.landmarks;
-                const drawPuppeteer = new faceapi.draw.DrawFaceLandmarks(landmark, {
+                let landmark = result.landmarks;
+                let drawPuppeteer = new faceapi.draw.DrawFaceLandmarks(landmark, {
                     drawLines: true,
                     drawPoints: false,
                     lineWidth: 2,
@@ -261,14 +247,14 @@
             detections.forEach((result, i) => {
 
                 // Get the most probable expression
-                var sorted = result.expressions ? result.expressions.asSortedArray() : null;
-                var expression = Array.isArray(sorted) ? sorted.filter(function(expr) {
+                let sorted = result.expressions ? result.expressions.asSortedArray() : null;
+                let expression = Array.isArray(sorted) ? sorted.filter(function(expr) {
                     return expr.probability > 0.9;
                 }) : null;
-                var expressionToDisplay = Array.isArray(expression) ? expression[0] ? expression[0].expression : 'neutral' : 'neutral';
+                let expressionToDisplay = Array.isArray(expression) ? expression[0] ? expression[0].expression : 'neutral' : 'neutral';
 
                 // Compose the array of results to display on the canva
-                var resultToDisplay = [];
+                let resultToDisplay = [];
                 if (options && options.expression) {
                     resultToDisplay.push("Expression: " + expressionToDisplay);
                 }
@@ -280,9 +266,9 @@
                 }
 
                 // Draw the values at the bottom of the canva
-                const box = result.detection.box;
-                const anchor = box.bottomLeft;
-                const drawTextField = new faceapi.draw.DrawTextField(resultToDisplay, anchor);
+                let box = result.detection.box;
+                let anchor = box.bottomLeft;
+                let drawTextField = new faceapi.draw.DrawTextField(resultToDisplay, anchor);
                 drawTextField.draw(canvas);
 
             });
@@ -295,7 +281,7 @@
      clearDisplay() {
 
         // clear the ordered list
-        var messageElement = document.getElementById('message') || null;
+        const messageElement = document.querySelector('#message') || null;
         if (messageElement) {
             messageElement.innerHTML = '';      
         }
@@ -309,7 +295,7 @@
      * @message: the message to be displayed
      * @output: the HTML id where it should be displayed
      */
-     display(message, output) {
+    display(message, output) {
          
         var infobarElement = document.getElementById('infobar') || null;
         if (!document.getElementById('infobar')) {
@@ -363,34 +349,33 @@
      */
      recognize(facedetector = this) {
          
-         const detections = facedetector.app.detections || null;
-         const options = facedetector.app.options || null;
-         const canvas = facedetector.app.canvas || null;
+         let detections = facedetector.app.detections || null;
+         let options = facedetector.app.options || null;
+         let canvas = facedetector.app.canvas || null;
 
         // Clear the canva so that it doesn't accumulate drawing at every detection
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
          
         // initialize the face matcher based on the recognition model loaded
-        const labeledFaceDescriptors = options.recognitionModel;
-        const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
+        let labeledFaceDescriptors = options.recognitionModel;
+        let faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
 
-        const results = detections.map(d => faceMatcher.findBestMatch(d.descriptor));
+        let results = detections.map(d => faceMatcher.findBestMatch(d.descriptor));
         
         // expose the recognitions
         facedetector.app.recognitions = results;
 
         // For each detection, draw a box. Draw the match in a different color
         results.forEach((result, i) => {
-            const box = detections[i].detection.box;
+            let box = detections[i].detection.box;
 
             // Let the box highlight matches in a different box colors
-            const drawBox = new faceapi.draw.DrawBox(box, {
+            let drawBox = new faceapi.draw.DrawBox(box, {
                 label: result.toString(),
                 boxColor: !result.toString().includes("unknown") ? 'rgba(255,0,0, 1)' : 'rgb(192,192,192,1)'
             });
             drawBox.draw(canvas);
-        })
-
+        });
     }
     
     /* 
@@ -400,35 +385,40 @@
      * @output: return promise with face descriptors of the models to be recognized
      */
      loadRecognition(models = null) {
-         const labels = models.labels || [];
-         const images = models.images || [];
-         const sampleSize = models.sampleSize || 0;
+         let labels = models.labels || [];
+         let images = models.images || [];
+         let sampleSize = models.sampleSize || 0;
 
         // return a promise that loads all the images and fetches their descriptors
         return Promise.all(
 
             // for each label get the descriptors based on the model image
-            labels.map(async label => {
+            labels.map(async (label, key) => {
 
-                const descriptors = [];
-                var url;
+                let descriptors = [];
+                let url;
 
                 // iterate through all the model images in the folder (there are 6 right now and this number should be changed if more pics need to be added)
                 for (let i = 1; i <= sampleSize; i++) {
 
-                    url =  images.length > 0 ? images[i-1] : `../../facedetect/recognition/${label}/${i}.png`;
+                    if(Array.isArray(images) && images[0].constructor === Array) {
+                        url =  images[key].length > 0 ? images[key][i-1] : `../../facedetect/recognition/${label}/${i}.png`;
+                    } else {
+                        url =  images.length > 0 ? images[i-1] : `../../facedetect/recognition/${label}/${i}.png`;
+                    }
+                    
 
                     // fetch the images from the model
-                    const img = await faceapi.fetchImage(url);
+                    let img = await faceapi.fetchImage(url);
 
 
                     // detect the single face from the image
-                    const detections = await faceapi.detectSingleFace(img, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
+                    let detections = await faceapi.detectSingleFace(img, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
 
                     // push the descriptiors from each image detection onto the decriptor collections that will be needed
                     if (detections && detections.descriptor) {
                         descriptors.push(detections.descriptor);
-                    };
+                    }
                 }
 
                 return new faceapi.LabeledFaceDescriptors(label, descriptors);
@@ -446,13 +436,13 @@
      *
      */
     detect(callback, recognize = false, fetchRate = 100) {
-        setInterval(() => {
-            if (recognize && this.app && this.app.recognitions) {
-                    callback(this.app.recognitions);
-                } else if(this.app && this.app.detections) {
-                    callback(this.app.detections);
-                }
-        }, fetchRate)
+        return setInterval(() => {
+                if (recognize && this.app && this.app.recognitions) {
+                        callback(this.app.recognitions, this);
+                    } else if(this.app && this.app.detections) {
+                        callback(this.app.detections, this);
+                    }
+            }, fetchRate);
     }
     
     
@@ -464,8 +454,8 @@
      *
      */
      fetchImage(canvas, media) {
-        var context = canvas.getContext('2d');
-        context.drawImage(media, 0, 0, media.offsetWidth, media.offsetHeight)
+        let context = canvas.getContext('2d');
+        context.drawImage(media, 0, 0, media.offsetWidth, media.offsetHeight);
         return canvas.toDataURL();
     }
     
@@ -483,11 +473,11 @@
         return function() {
 
             // Get the canvas ready with the app options
-            const canvas = facedetector.prepareCanva(app.options);
+            let canvas = facedetector.prepareCanva(app.options);
 
 
             // Match the canva size with the video
-            const displaySize = {
+            let displaySize = {
                 width: facedetector.media.width,
                 height: facedetector.media.height
             };
@@ -502,8 +492,7 @@
             // call the app features from here
             app.method(facedetector);
 
-        }
-
+        };
     }
     
     
